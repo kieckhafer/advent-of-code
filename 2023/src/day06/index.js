@@ -26,7 +26,6 @@ const part1 = (rawInput) => {
     let waysToWin = 0;
 
     for (let i = 0; i <= millisecond; i++) {
-      console.log("i", i);
       const speed = i;
       const timeToRace = millisecond - i;
 
@@ -45,10 +44,35 @@ const part1 = (rawInput) => {
   return totalWaysToWin;
 };
 
+const formatInputPart2 = (input) => {
+  const millisecond = Number(input[0].split(':')[1].replace(/\s+/g, '').trim());
+  const distance = Number(input[1].split(':')[1].replace(/\s+/g, '').trim());
+
+    return {
+      millisecond,
+      distance
+    }
+}
 const part2 = (rawInput) => {
   const input = parseInput(rawInput);
 
-  return;
+  const race = formatInputPart2(input);
+
+  const { distance, millisecond } = race;
+  let waysToWin = 0;
+
+  for (let i = 0; i <= millisecond; i++) {
+    const speed = i;
+    const timeToRace = millisecond - i;
+
+    const myDistance = speed * timeToRace;
+
+    if (myDistance > distance) {
+      waysToWin++;
+    }
+  }
+
+  return waysToWin;
 };
 
 run({
