@@ -3,7 +3,7 @@ import run from "aocrunner";
 const parseInput = (rawInput) => rawInput.split("\n").map((a) => a);
 
 const formatInput = (input) => {
-  // break the time portion into an array of individual values
+  // take the time portion of the original values
   const milliseconds = input[0]
   // split into two parts (key and values) and take the values
   .split(':')[1]
